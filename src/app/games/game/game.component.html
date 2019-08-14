@@ -1,0 +1,8 @@
+<ng-container *ngIf="game$ | async as game">
+  <h2>{{ game.name }}</h2>
+  <section class="game-grid" *ngIf="selection$ | async as choices">
+    <div class="game-item" *ngFor="let choice of choices" (click)="checkChoice(choice)" [class.answered]="hasFoundChoice(choice)">
+      {{ choice.emoji }}
+    </div>
+  </section>
+</ng-container>

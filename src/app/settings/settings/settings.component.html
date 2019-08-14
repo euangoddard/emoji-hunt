@@ -1,0 +1,21 @@
+<h2>Let's get set up!</h2>
+
+<form [formGroup]="form">
+  <label for="voice-select">Voice</label>
+  <select formControlName="voice" id="voice-select" required>
+    <option *ngFor="let voice of voices$ | async" [ngValue]="voice"
+      >{{ voice.name }} ({{ voice.lang }})</option
+    >
+  </select>
+  <button type="button" (click)="testVoice()">Test voice</button>
+
+  <label for="name">Name</label>
+  <input type="text" required id="name" formControlName="name" />
+</form>
+
+<ng-container *ngIf="gamesChoices$ | async as gameChoices">
+  <h2>Choose a game</h2>
+  <div *ngFor="let game; of gameChoices">
+    <a [routerLink]="['games', game.id]">{{ game.name }} {{ game.emoji }}</a>
+  </div>
+</ng-container>

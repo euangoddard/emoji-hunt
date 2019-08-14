@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  padding: 1rem;
+  background-color: darken(white, 2%);
+}
+
+.game-grid {
+  display: grid;
+
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (orientation: landscape) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.game-item {
+  font-size: 25vw;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+
+  @media (orientation: landscape) {
+    font-size: 18vw;
+  }
+
+  &.answered {
+    opacity: 0.5;
+    transform: scale(0.8);
+    cursor: default;
+  }
+}
