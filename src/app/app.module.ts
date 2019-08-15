@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LoggingAnnouncerService } from 'src/app/shared/logging-announcer.service';
@@ -15,6 +15,26 @@ import { AppComponent } from './app.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: ANNOUNCER, useClass: LoggingAnnouncerService }],
+  providers: [
+    { provide: ANNOUNCER, useClass: LoggingAnnouncerService },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => ensureVoices,
+      multi: true,
+    },
+  ],
 })
 export class AppModule {}
+
+function ensureVoices() {
+  return new Promise(resolve => {
+    if (speechSynthesis.getVoices().length) {
+      resolve();
+    } else {
+      speechSynthesis.onvoiceschanged = () => {
+        resolve();
+        speechSynthesis.onvoiceschanged = null;
+      };
+    }
+  });
+}
