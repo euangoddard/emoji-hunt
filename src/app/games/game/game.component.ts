@@ -68,7 +68,7 @@ export class GameComponent implements OnInit {
 
   hasFoundChoice(choice: GameChoice): boolean {
     const choices = this.questions$.getValue();
-    const choiceIndex = findIndex(choices, {emoji: choice.emoji });
+    const choiceIndex = findIndex(choices, { emoji: choice.emoji });
     return choiceIndex < this.currentQuestionIndex$.getValue();
   }
 
@@ -87,14 +87,14 @@ export class GameComponent implements OnInit {
     const selection = sampleSize(range(game.choices.length), QUESTION_COUNT);
     const selectionEncoded = selection.map(index => SELECTION_ENCODE_KEY[index]).join('');
 
-    this.router.navigate(['/games', game.id, selectionEncoded]);
+    this.router.navigate(['/games', game.id, selectionEncoded], { replaceUrl: true });
   }
 
   private moveToNextQuestion(): void {
     const nextIndex = this.currentQuestionIndex$.getValue() + 1;
     this.currentQuestionIndex$.next(nextIndex);
     if (QUESTION_COUNT <= nextIndex) {
-      this.announcer.speak('You have finished!')
+      this.announcer.speak('You have finished!');
     } else {
       this.readCurrentQuestion();
     }

@@ -2,8 +2,8 @@
 
 <form [formGroup]="form">
   <label for="voice-select">Voice</label>
-  <select formControlName="voice" id="voice-select" required>
-    <option *ngFor="let voice of voices$ | async" [ngValue]="voice"
+  <select formControlName="voice" id="voice-select" required *ngIf="voices">
+    <option *ngFor="let voice of voices" [ngValue]="voice"
       >{{ voice.name }} ({{ voice.lang }})</option
     >
   </select>

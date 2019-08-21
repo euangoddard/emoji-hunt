@@ -1,8 +1,8 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { LoggingAnnouncerService } from 'src/app/shared/logging-announcer.service';
 import { ANNOUNCER } from 'src/app/shared/shared.tokens';
+import { SpeechSynthesisService } from 'src/app/shared/speech-synthesis.service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent],
   providers: [
-    { provide: ANNOUNCER, useClass: LoggingAnnouncerService },
+    { provide: ANNOUNCER, useClass: SpeechSynthesisService },
     {
       provide: APP_INITIALIZER,
       useFactory: () => ensureVoices,

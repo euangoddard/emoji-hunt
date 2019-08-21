@@ -22,7 +22,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   readonly form: FormGroup;
 
   readonly gamesChoices$: Observable<GameChoices> = this.gamesService.getGames().pipe(
-    filter(Boolean),
+    filter(v => !!v),
     map(games => this.summarizeGames(games)),
   );
 
@@ -37,20 +37,16 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.voices = this.announcer.getVoices();
     this.selectedVoice = this.announcer.getVoice();
     this.form = formBuilder.group({
-      voice: [null, Validators.required],
-      name: [null, Validators.required],
+      voice: [this.selectedVoice, Validators.required],
+      name: [this.storage.get<string>('name'), Validators.required],
     });
   }
 
   ngOnInit(): void {
-    this.announcer.voice$
-      .pipe(untilDestroyed(this))
-      .subscribe(voice => this.form.patchValue({ voice }));
-
     this.form.valueChanges
       .pipe(
         untilDestroyed(this),
-        filter(Boolean),
+        filter(v => !!v),
       )
       .subscribe(({ voice, name }) => {
         this.selectedVoice = voice;
