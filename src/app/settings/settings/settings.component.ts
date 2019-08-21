@@ -16,9 +16,6 @@ import { StorageService } from 'src/app/shared/storage.service';
 })
 export class SettingsComponent implements OnInit, OnDestroy {
   readonly voices: readonly SpeechSynthesisVoice[];
-
-  readonly voices$ = this.announcer.voices$;
-
   readonly form: FormGroup;
 
   readonly gamesChoices$: Observable<GameChoices> = this.gamesService.getGames().pipe(
