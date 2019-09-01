@@ -361,6 +361,120 @@
           "emoji": "\uD83E\uDDA1"
         }
       ]
+    },
+    {
+      "name": "Objects",
+      "id": "objects",
+      "choices": [
+        {
+          "label": "Watch",
+          "emoji": "⌚️"
+        },
+        {
+          "label": "Camera",
+          "emoji": "\uD83D\uDCF7"
+        },
+        {
+          "label": "Phone",
+          "emoji": "\uD83D\uDCF1"
+        },
+        {
+          "label": "Clock",
+          "emoji": "\uD83D\uDD70"
+        },
+        {
+          "label": "Battery",
+          "emoji": "\uD83D\uDD0B"
+        },
+        {
+          "label": "Light bulb",
+          "emoji": "\uD83D\uDCA1"
+        },
+        {
+          "label": "Torch",
+          "emoji": "\uD83D\uDD26"
+        },
+        {
+          "label": "Candle",
+          "emoji": "\uD83D\uDD6F"
+        },
+        {
+          "label": "Spanner",
+          "emoji": "\uD83D\uDD27"
+        },
+        {
+          "label": "Hammer",
+          "emoji": "\uD83D\uDD28"
+        },
+        {
+          "label": "Chain",
+          "emoji": "⛓"
+        },
+        {
+          "label": "Bomb",
+          "emoji": "\uD83D\uDCA3"
+        },
+        {
+          "label": "Knife",
+          "emoji": "\uD83D\uDD2A"
+        },
+        {
+          "label": "Sword",
+          "emoji": "\uD83D\uDDE1"
+        },
+        {
+          "label": "Shield",
+          "emoji": "\uD83D\uDEE1"
+        },
+        {
+          "label": "Teddy",
+          "emoji": "\uD83E\uDDF8"
+        },
+        {
+          "label": "Magnet",
+          "emoji": "\uD83E\uDDF2"
+        },
+        {
+          "label": "Toilet",
+          "emoji": "\uD83D\uDEBD"
+        },
+        {
+          "label": "Tap",
+          "emoji": "\uD83D\uDEB0"
+        },
+        {
+          "label": "Bath",
+          "emoji": "\uD83D\uDEC1"
+        },
+        {
+          "label": "Sponge",
+          "emoji": "\uD83E\uDDFD"
+        },
+        {
+          "label": "Key",
+          "emoji": "\uD83D\uDD11"
+        },
+        {
+          "label": "Bed",
+          "emoji": "\uD83D\uDECF"
+        },
+        {
+          "label": "Present",
+          "emoji": "\uD83C\uDF81"
+        },
+        {
+          "label": "Balloon",
+          "emoji": "\uD83C\uDF88"
+        },
+        {
+          "label": "Scissors",
+          "emoji": "✂️"
+        },
+        {
+          "label": "Pen",
+          "emoji": "\uD83D\uDD8A"
+        }
+      ]
     }
   ]
 }
