@@ -55,7 +55,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   testVoice(): void {
-    this.announcer.speak('This is what the voice sounds like');
+    this.announcer.speak('This is what the voice sounds like', true);
   }
 
   private summarizeGames(games: Games): GameChoices {

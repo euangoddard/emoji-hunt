@@ -9,7 +9,7 @@ export class LoggingAnnouncerService extends Announcer {
     super(storage);
   }
 
-  speak(phrase: string): void {
+  speak(phrase: string, cancel: boolean): void {
     debugLog(this.currentVoice.voiceURI, phrase);
   }
 }

@@ -18,7 +18,7 @@ export abstract class Announcer {
     }
   }
 
-  abstract speak(phrase: string): void;
+  abstract speak(phrase: string, cancel: boolean): void;
 
   getVoices(): readonly SpeechSynthesisVoice[] {
     return speechSynthesis.getVoices();

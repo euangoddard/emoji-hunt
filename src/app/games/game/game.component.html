@@ -1,8 +1,28 @@
 <ng-container *ngIf="game$ | async as game">
   <h2>{{ game.name }}</h2>
-  <section class="game-grid" *ngIf="selection$ | async as choices">
-    <div class="game-item" *ngFor="let choice of choices" (click)="checkChoice(choice)" [class.answered]="hasFoundChoice(choice)">
-      {{ choice.emoji }}
-    </div>
-  </section>
+  <ng-container *ngIf="selection$ | async as choices">
+    <h3 *ngIf="isComplete$ | async; else incomplete">
+      🎉 Well done!
+      <a [routerLink]="['/games', game.id]">Play again</a>
+      <a [routerLink]="['/']">Choose another game</a>
+    </h3>
+    <ng-template #incomplete>
+      <p *ngIf="(currentQuestionIndex$ | async) === -1; else grid">
+        <button type="button" (click)="start()">🚀 Let's go</button>
+      </p>
+    </ng-template>
+
+    <ng-template #grid>
+      <section class="game-grid">
+        <div
+          class="game-item"
+          *ngFor="let choice of choices"
+          (click)="checkChoice(choice)"
+          [class.answered]="hasFoundChoice(choice)"
+        >
+          {{ choice.emoji }}
+        </div>
+      </section>
+    </ng-template>
+  </ng-container>
 </ng-container>

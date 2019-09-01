@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { every, findIndex, indexOf, range, sampleSize, shuffle } from 'lodash-es';
+import { every, findIndex, range, sampleSize, shuffle } from 'lodash-es';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { filter, map, pluck, tap } from 'rxjs/operators';
 import { Game, GameChoice, GameChoices } from 'src/app/games/games.models';
@@ -20,7 +20,8 @@ export class GameComponent implements OnInit {
   game$: Observable<Game> | null = null;
   selection$: Observable<GameChoices> | null = null;
   readonly questions$ = new BehaviorSubject<GameChoices>([]);
-  readonly currentQuestionIndex$ = new BehaviorSubject<number>(0);
+  readonly currentQuestionIndex$ = new BehaviorSubject<number>(-1);
+  readonly isComplete$ = this.currentQuestionIndex$.pipe(map(index => QUESTION_COUNT <= index));
 
   private name: string | null = null;
 
@@ -50,19 +51,22 @@ export class GameComponent implements OnInit {
       }),
       tap(selection => {
         this.questions$.next(shuffle(selection));
-        this.currentQuestionIndex$.next(0);
-        this.readCurrentQuestion();
+        this.currentQuestionIndex$.next(-1);
       }),
     );
   }
 
   checkChoice(choice: GameChoice): void {
     const currentChoice = this.getCurrentQuestion();
+    if (!currentChoice || this.hasFoundChoice(choice)) {
+      return;
+    }
+
     if (currentChoice.emoji === choice.emoji) {
-      this.announcer.speak(`Well done, you found the ${choice.label}!`);
+      this.announcer.speak(`Well done, you found the ${choice.label}!`, true);
       this.moveToNextQuestion();
     } else {
-      this.announcer.speak(`No, that's the ${choice.label}. Try again.`);
+      this.announcer.speak(`No, that's the ${choice.label}. Try again.`, true);
     }
   }
 
@@ -72,10 +76,15 @@ export class GameComponent implements OnInit {
     return choiceIndex < this.currentQuestionIndex$.getValue();
   }
 
+  start(): void {
+    this.currentQuestionIndex$.next(0);
+    this.readCurrentQuestion();
+  }
+
   private readCurrentQuestion(): void {
     const question = this.getCurrentQuestion();
     const phrase = Math.random() > 0.5 ? 'can you find' : "where's";
-    this.announcer.speak(`${this.name}, ${phrase} the ${question.label}?`);
+    this.announcer.speak(`${this.name}, ${phrase} the ${question.label}?`, false);
   }
 
   private getCurrentQuestion() {
@@ -94,7 +103,7 @@ export class GameComponent implements OnInit {
     const nextIndex = this.currentQuestionIndex$.getValue() + 1;
     this.currentQuestionIndex$.next(nextIndex);
     if (QUESTION_COUNT <= nextIndex) {
-      this.announcer.speak('You have finished!');
+      this.announcer.speak('You have finished!', false);
     } else {
       this.readCurrentQuestion();
     }

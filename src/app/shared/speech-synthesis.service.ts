@@ -4,13 +4,14 @@ import { StorageService } from 'src/app/shared/storage.service';
 
 @Injectable()
 export class SpeechSynthesisService extends Announcer {
-
   constructor(storage: StorageService) {
     super(storage);
   }
 
-  speak(phrase: string): void {
-    speechSynthesis.cancel();
+  speak(phrase: string, cancel: boolean): void {
+    if (cancel) {
+      speechSynthesis.cancel();
+    }
     const utterance = new SpeechSynthesisUtterance(phrase);
     utterance.voice = this.currentVoice;
     speechSynthesis.speak(utterance);
