@@ -1,0 +1,86 @@
+{
+  "configVersion": 1,
+  "timestamp": 1567450335577,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/1-es2015.7755f01031fb1c9c18e6.js",
+        "/1-es5.7755f01031fb1c9c18e6.js",
+        "/6-es2015.0e5fd2179e3b687e1382.js",
+        "/6-es5.0e5fd2179e3b687e1382.js",
+        "/7-es2015.a601dd74667cc229e7f1.js",
+        "/7-es5.a601dd74667cc229e7f1.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.8dd1896fbf6ab20af8fd.js",
+        "/main-es5.8dd1896fbf6ab20af8fd.js",
+        "/polyfills-es2015.9be6bf3017dca1ff0ae6.js",
+        "/polyfills-es5.573d3dbeb9a21663037d.js",
+        "/runtime-es2015.beb30f7aba22306d3abf.js",
+        "/runtime-es5.beb30f7aba22306d3abf.js",
+        "/styles.e0eae71bd80adef39bc1.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/games.json",
+        "/assets/icons/android-chrome-192x192.png",
+        "/assets/icons/android-chrome-512x512.png",
+        "/assets/icons/apple-touch-icon.png",
+        "/assets/icons/favicon-16x16.png",
+        "/assets/icons/favicon-32x32.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/1-es2015.7755f01031fb1c9c18e6.js": "a44b5fb48be4694a3dacb689b42bbd90b9a73c9f",
+    "/1-es5.7755f01031fb1c9c18e6.js": "5bc8eddbc8d86801625d0f9768014cbd2b02183d",
+    "/6-es2015.0e5fd2179e3b687e1382.js": "056786872043d9501456714ca037df5055d09fde",
+    "/6-es5.0e5fd2179e3b687e1382.js": "d7f20efd734f2b94c930ef02092d3a8500c7604c",
+    "/7-es2015.a601dd74667cc229e7f1.js": "be0158b9f8d05b855f73574f633f1e08d747cccc",
+    "/7-es5.a601dd74667cc229e7f1.js": "d35eeb012f8b0161c1454adf9df97dcfc6af476d",
+    "/assets/games.json": "d3e63f1a5603ce8a0bd99e01e470d138b7168ffd",
+    "/assets/icons/android-chrome-192x192.png": "e9b10a36ef179203cb82f0265d440883821251e2",
+    "/assets/icons/android-chrome-512x512.png": "ad793ffbd6eedbc2da0dbc185b79a208cf750dd3",
+    "/assets/icons/apple-touch-icon.png": "b359310ebe5733ba88cce8172fa21dce30e28e7c",
+    "/assets/icons/favicon-16x16.png": "e49fec9c5be2375c938f69a340be3a7f4ab46671",
+    "/assets/icons/favicon-32x32.png": "c9b411ddc82613e60b3738ed2b9228de56312039",
+    "/favicon.ico": "e13230d9a4ec00f8bb87faef5a35ace6044eed8e",
+    "/index.html": "9eac460555ebce369287cf158cb53b0c18b3dc3c",
+    "/main-es2015.8dd1896fbf6ab20af8fd.js": "f8d10b8153a2028920396eda0e7ff321702e7249",
+    "/main-es5.8dd1896fbf6ab20af8fd.js": "0878a8f658fe2d6a0dd626a52e70f799284398f0",
+    "/polyfills-es2015.9be6bf3017dca1ff0ae6.js": "b1619603c036af8b91cb48716ec68fece43e6559",
+    "/polyfills-es5.573d3dbeb9a21663037d.js": "f92214505bc4c2c8c8e201b869b2d808b1fbf30f",
+    "/runtime-es2015.beb30f7aba22306d3abf.js": "fc82c94ce88bdce2cd54ed29dc1686cc58d22a87",
+    "/runtime-es5.beb30f7aba22306d3abf.js": "5db37ba8b4fd4c320f9cd40ad2b35f01f828c6ef",
+    "/styles.e0eae71bd80adef39bc1.css": "99f45049468e20766e0e25a3f559e119cbd58cf7"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
